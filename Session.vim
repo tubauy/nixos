@@ -13,10 +13,11 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +156 ~/nixos/configuration.nix
+badd +4 ~/.ssh/config
 argglobal
 %argdel
-edit ~/nixos/configuration.nix
+$argadd ~/.ssh/config
+edit ~/.ssh/config
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -28,12 +29,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 156 - ((8 * winheight(0) + 21) / 43)
+let s:l = 4 - ((3 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 156
-normal! 011|
+keepjumps 4
+normal! 032|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
