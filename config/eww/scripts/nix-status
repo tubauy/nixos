@@ -1,0 +1,6 @@
+stat=$(pgrep nixos-rebuild)
+if [[ -z $stat ]]; then
+    echo "#78B892"
+else
+    echo "#DF5B61"
+fi

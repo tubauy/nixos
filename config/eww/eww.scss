@@ -1,0 +1,169 @@
+
+$borderadius: 5px;
+$border: 3px;
+$rd:#DF5B61;
+$yllw:#ecd28b;
+$grn:#78B892;
+$bl:#6791C9;
+$accentcolor: $bl;
+$accentcolor2: $bl;
+$background-color: #0c0e0f;
+$bg2: #edeff0;
+$talpha: 1.0;
+
+* {
+  all: unset; //Unsets everything so you can style everything from scratch
+  font-size: 18px;
+  font-family: Inter, FiraCode Nerd Font;
+  //background: rgba($color: $background-color, $alpha: $talpha);
+  padding: 2px;
+}
+
+.workspace-entry {
+  margin-left:  4px;
+  margin-right: 4px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+  background: rgba($color:$background-color, $alpha: 0.0);
+  border-radius: $borderadius;
+  &.empty {
+    color: $bg2;
+    background: rgba($color:$background-color, $alpha: 0.0);
+  }
+  &.occupied {
+    color: $bl;
+    background: rgba($color:$background-color, $alpha: 0.0);
+  }
+  &.current {
+    background-color: $accentcolor;
+    color: $background-color;
+    font-weight: bold;
+  }
+}
+
+.wndw {
+  border-color: $accentcolor;
+  border-style: solid;
+  background: rgba($color: $background-color, $alpha: 0.0);
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-right: 5px;
+}
+.bar {
+  background: rgba($color: $background-color, $alpha: 0.0);
+}
+
+.bar-left {
+  border-radius: $borderadius;
+  background: rgba($color:$background-color, $alpha: $talpha);
+}
+.bar-center {
+  border-radius: $borderadius;
+  background: rgba($color:$background-color, $alpha: $talpha);
+}
+
+.bar-right {
+  border-radius: $borderadius;
+  background: rgba($color:$background-color, $alpha: $talpha);
+}
+
+.workspaces-widget {
+  color: #ffffff;
+  min-height: 30px;
+  background: rgba($color:$background-color, $alpha: 0.0);
+}
+
+.timew {
+  color: $background-color;
+  
+  background: rgba($color: $accentcolor2, $alpha: 1.0);
+  //background-color:  $rd;
+  border-radius: $borderadius;
+  margin:4px;
+  //font-style:italic;
+}
+.bat {
+  
+  background: rgba($color: $background-color, $alpha: 0.0);
+  //background-color:  $yllw;
+  border-radius: $borderadius;
+  color: $bg2;
+  margin:4px;
+}
+.bright {
+  background: rgba($color: $background-color, $alpha: 0.0);
+  //background-color:  $grn;
+  border-radius: $borderadius;
+  color: $bg2;
+  margin:4px;
+}
+.vol {
+  //background-color:  $bl;
+  background: rgba($color: $background-color, $alpha: 0.0);
+  border-radius: $borderadius;
+  color: $bg2;
+  margin:5px;
+}
+.window_w {
+  background-color: $accentcolor;
+  border-radius: $borderadius;
+  color: $background-color;
+  margin:4px;
+}
+.icon {
+  font-size: 25px;
+  //border-width: 2px;
+  //border-style: solid;
+  //border-color: #FFC022;
+}
+/////////////////////////////////////////////////////////////////////////
+
+.pmenu {
+  border-radius: $borderadius+10;
+  
+  background: rgba($color: $background-color, $alpha: 0.0);
+}
+
+.pmenuin {
+    //border-bottom-right-radius: 10px;
+    //border-bottom-left-radius: 10px;
+   // border: $border;
+   // border-color: $accentcolor;
+   // border-style: solid;
+   // border-radius: $borderadius+10;
+
+  background: rgba($color: $background-color, $alpha: $talpha);
+  
+}
+.ibox {
+  border-radius: $borderadius+10;
+
+  background: rgba($color: $background-color, $alpha: 0.0);
+} 
+
+.pimg {
+  border-radius: $borderadius+10;  
+  background: rgba($color: $background-color, $alpha: 0.0);
+}
+
+.picon {
+  border-radius: $borderadius+10;
+
+  background: rgba($color: $background-color, $alpha: 0.0);
+}
+.pcont {
+  border-radius: $borderadius+10;
+
+  background: rgba($color: $background-color, $alpha: 0.0);
+}
+
+/////////////////////////////////////////////////////////////////////////
+
+.dock {
+  border-radius: $borderadius+10;
+  
+  background: rgba($color: $background-color, $alpha: $talpha);
+
+}
+
+

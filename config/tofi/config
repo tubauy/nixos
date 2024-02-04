@@ -1,0 +1,28 @@
+font = Fira Code Nerd Font
+font-size = 20
+
+outline-width = 0
+border-width = 3
+padding-left = 0
+padding-top = 0
+padding-right = 0
+padding-bottom = 0
+
+#horizontal = true
+
+prompt-text = "-->  "
+prompt-padding = 0 0 100 0
+result-spacing = 10
+input-background-padding = 0 0 100 0
+
+background-color = #0c0e0f
+text-color = #edeff0
+selection-color = #6791C9
+border-color = #6791C9
+
+corner-radius = 10
+
+width = 20%
+height = 50%
+
+hide-cursor = true

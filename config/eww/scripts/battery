@@ -1,0 +1,35 @@
+
+
+### Author: Eyüp Can ELMA
+### Website: https://elma.dev
+### This script is intended to be used to show information about power sources.
+
+# YOU CAN EDIT THE LINES BELOW
+DEFAULT_DEVICE_NAME='battery_BAT1'
+# YOU CAN EDIT THE LINES ABOVE
+
+
+# ! DO NOT EDIT VARIABLES BELOW ! #
+DEVICE_NAME=${1:-'battery_BAT1'}
+PATH_PREFIX='/org/freedesktop/UPower/devices'
+DEVICE_PATH="$PATH_PREFIX/$DEVICE_NAME"
+# ! DO NOT EDIT VARIABLES ABOVE ! #
+
+if [ $# -gt 1 ]; then
+  echo "Only one parameter is allowed."
+  echo "Usage: '$0 <optional:device_name>'"
+  exit 1
+fi
+
+# GATHER INFORMATION ABOUT THE BATTERY DEVICE
+INFORMATION=$(upower -i "$DEVICE_PATH" 2> /dev/null)
+PERCENTAGE=$(awk '/percentage/ {print $NF}' <<< $INFORMATION)
+
+
+print_info() {
+  [ $# -ne 2 ] && echo "print_info() requires two parameters." && exit 1
+  printf "%s" "$1" "$2"
+}
+
+
+print_info "" "$PERCENTAGE"

@@ -1,0 +1,10 @@
+[global]
+    height = 300
+    width = 600
+    frame_width = 3
+    origin = top-right 
+    offset = 30x75
+    font = "Monospace 10"
+    foreground = "#edeff0"
+    background = "#0c0e0f"
+    frame_color = "#6791C9"
