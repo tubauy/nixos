@@ -1,0 +1,73 @@
+<script src="//unpkg.com/alpinejs" defer></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.socket.io/4.3.2/socket.io.min.js" integrity="sha384-KAZ4DtjNhLChOB/hxXuKqhMLYvx3b5MlT55xPEiNmREKRzeEm+RVPlTnAn0ajQNs" crossorigin="anonymous"></script>
+<script>    
+
+    class Table {
+        constructor(nm) {
+            this.name = nm;
+            this.start = Date.now();
+        }
+        setEnd (date) {
+            this.end = date;
+        }
+
+        name;
+        start;
+        end;
+        sales = []
+
+    }
+
+
+    const socket = io('/');
+    function addTable(table) {
+        socket.emit('add', JSON.stringify(table));
+    }
+
+    socket.on('connect', function() {
+        console.log('Connected');
+        socket.emit("hi")
+
+    });
+
+    socket.on('updated', 
+        function(data) {
+            console.log('updated');
+            l = JSON.parse(data);
+            ls = JSON.parse(l)
+            Alpine.store('tables').list = ls;
+            console.log(Alpine.store('tables').list);
+        }    
+    )
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('tables',{
+            list: []
+        });
+    })
+
+</script>
+<div x-data="{}">
+    <div class="flex flex-wrap">    
+        <template x-for="table in $store.tables.list">   
+            <div class="flex-none p-8 m-5 shadow-xl bg-stone-100 rounded-2xl">
+                <p x-text="JSON.parse(table).name"></p>
+                <template x-for="sale in JSON.parse(table).sales">
+                    <div>
+                        <span x-text="sale"></span>
+                    </div>
+                </template> 
+                <button x-on:click="JSON.parse(table).sales.push('cay')">ürün ekle</button>
+            </div>
+        </template>
+    </div>
+    <div class="">
+        <button 
+                x-on:click="
+                    x = new Table('masa-'+ ($store.tables.list.length+1));
+                    addTable(x);" 
+                class="bg-blue-500 rounded m-5 p-3 hover:bg-blue-800 active:bg-blue-400"
+        >masa ekle
+    </button>
+    </div>
+</div>

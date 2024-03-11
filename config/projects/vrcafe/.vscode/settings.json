@@ -1,0 +1,20 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "sqlite-vr",
+            "database": "${workspaceFolder:vrcafe}/vr/db.sqlite3"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "postgres",
+            "database": "tbu",
+            "username": "tbu"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
