@@ -67,8 +67,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "tr";
-    xkbVariant = "";
+    xkb.layout = "tr";
+    xkb.variant = "";
   };
 
   # Configure console keymap

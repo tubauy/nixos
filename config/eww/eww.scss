@@ -1,12 +1,12 @@
 
 $borderadius: 5px;
-$border: 3px;
+$border: 2px;
 $rd:#DF5B61;
 $yllw:#ecd28b;
 $grn:#78B892;
 $bl:#6791C9;
 $accentcolor: $bl;
-$accentcolor2: $bl;
+$accentcolor2: $grn;
 $background-color: #0c0e0f;
 $bg2: #edeff0;
 $talpha: 1.0;
@@ -55,15 +55,24 @@ $talpha: 1.0;
 
 .bar-left {
   border-radius: $borderadius;
+ //border-style: solid;
+ // border-width: $border;
+ // border-color: $accentcolor;
   background: rgba($color:$background-color, $alpha: $talpha);
 }
 .bar-center {
   border-radius: $borderadius;
+  //border-style: solid;
+  //border-width: $border;
+  //border-color: $accentcolor;
   background: rgba($color:$background-color, $alpha: $talpha);
 }
 
 .bar-right {
   border-radius: $borderadius;
+ // border-style: solid;
+ // border-width: $border;
+ // border-color: $accentcolor;
   background: rgba($color:$background-color, $alpha: $talpha);
 }
 
@@ -76,7 +85,7 @@ $talpha: 1.0;
 .timew {
   color: $background-color;
   
-  background: rgba($color: $accentcolor2, $alpha: 1.0);
+  background: rgba($color: $accentcolor, $alpha: 1.0);
   //background-color:  $rd;
   border-radius: $borderadius;
   margin:4px;
@@ -130,7 +139,7 @@ $talpha: 1.0;
    // border: $border;
    // border-color: $accentcolor;
    // border-style: solid;
-   // border-radius: $borderadius+10;
+   border-radius: $borderadius+10;
 
   background: rgba($color: $background-color, $alpha: $talpha);
   

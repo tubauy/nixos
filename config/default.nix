@@ -98,9 +98,11 @@
     firefox
     qutebrowser
 
-    #flatpaks
+    #apps
     flatpak
-    #communication
+    bottles
+
+  #communication
     discord
     slack
     whatsapp-for-linux
@@ -193,7 +195,6 @@
   qt = {
     enable = true;
 
-    platformTheme = "qtct";
 
     style.name = pkgs.lib.mkForce "kvantum";
   };
