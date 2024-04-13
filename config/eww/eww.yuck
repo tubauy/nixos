@@ -74,7 +74,7 @@
     :width 40
     :onclick "hyprctl dispatch -- exec kitty";;wofi --width=30% --height=30% -x 0 -y 55 --show drun -I"
     :class "ibox"
-    (image :class "icon" :path "/home/tbu/Pictures/icons/nixos-logo.png" :image-width 40 :image-height 40)
+    (image :class "icon" :path "/home/tbu/Pictures/icons/cat2.png" :image-width 40 :image-height 40)
   )
 )
 

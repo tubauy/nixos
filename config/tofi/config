@@ -16,9 +16,9 @@ result-spacing = 10
 input-background-padding = 0 0 100 0
 
 background-color = #0c0e0f
-text-color = #edeff0
-selection-color = #6791C9
-border-color = #6791C9
+text-color = #798b94
+selection-color = #ffffff
+border-color = #21272a
 
 corner-radius = 10
 

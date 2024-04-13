@@ -70,14 +70,16 @@
     #desktop
     mimic
     bibata-cursors
+    brave
     clipman
-    eww-wayland
+    eww
     fira-code
     grim
     hyprpicker
     jetbrains-mono
     kitty
     kooha
+    krita
     libreoffice-qt
     pulseaudioFull
     slurp
