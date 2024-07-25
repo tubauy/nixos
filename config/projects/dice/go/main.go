@@ -1,87 +1,87 @@
 package main
 
-import "fmt"
+import (
+	"math"
+)
 
-func arr_eq(arr1, arr2 []int) bool {
-	for i := range arr1 {
-		if arr1[i] != arr2[i] {
-			return false
-		}
+func next(current []int, target []int) []int {
+	if len(current) != len(target) {
+		return nil
 	}
-	return true
-}
-func next(x *[]int, g []int) bool {
-	if arr_eq(*x, g) {
-		return false
-	} else {
-		var n, prev int
-		for i := 0; i < len(*x); i++ {
-			if (*x)[i] >= g[i] {
-				continue
+	length := len(current)
+	for i, e := range current {
+		if e == target[i] {
+			if i+1 == length {
+				return target
 			}
-			n = i
-			prev = (*x)[i]
-			break
+			current[i] = 1
+			continue
+		} else if e < target[i] {
+			result := current
+			result[i]++
+			return result
 		}
-		for j := n; j >= 0; j-- {
-			(*x)[j] = 1
-		}
-		(*x)[n] = prev + 1
-		return true
 	}
+	return nil
 }
-func cpy_arr(x *[]int, y []int) {
-	for i := 0; i < len(y); i++ {
-		(*x)[i] = y[i]
-	}
-}
-func fill_rolls(inlen int, res *[][]int) int {
-	var current []int
-	for i := 0; i < inlen; i++ {
-		current = append(current, 1)
-	}
-	var goal []int
-	for i := 0; i < inlen; i++ {
-		goal = append(goal, 6)
-	}
-	for i := 0; i < len(*res); i++ {
-		cpy_arr(&(*res)[i], current)
-		if next(&current, goal) {
-			return 1
-		}
-	}
-	return 0
-}
-func sum(inlen int, res []int, arr [][]int, bns int) {
-	var sum int
-	for i := 0; i < len(arr); i++ {
-		sum = 0
-		for j := 0; j < inlen; j++ {
-			sum += arr[i][j]
-		}
-		res[i] = sum + bns
-	}
-}
-func compare_arr(arr1 []int, arr2 []int) []int {
-	res := []int{0, 0, 0}
-	for i := 0; i < len(arr1); i++ {
-		for j := 0; j < len(arr2); j++ {
-			if arr1[i] == arr2[j] {
-				res[1] += 1
-			} else if arr1[i] < arr2[j] {
-				res[2] += 1
-			} else if arr1[i] > arr2[j] {
-				res[0] += 1
-			}
-		}
+
+func sum(arr []int) int {
+	res := 0
+	for _, j := range arr {
+		res = res + j
 	}
 	return res
 }
 
+func rollsums(diceCount int, bonus int) []int {
+	current := make([]int, diceCount)
+	target := make([]int, diceCount)
+	result := make([]int, int(math.Pow(float64(6), float64(diceCount))))
+	for i := 0; i < diceCount; i++ {
+		current[i] = 1
+		target[i] = 6
+	}
+	for i := 0; i < int(math.Pow(float64(6), float64(diceCount))); i++ {
+		result[i] = sum(current) + bonus
+		current = next(current, target)
+	}
+	return result
+
+}
+
+func compare(x []int, y []int) []int {
+	wins := 0
+	draws := 0
+	loses := 0
+	for i := range x {
+		for j := range y {
+			if x[i] > y[j] {
+				wins++
+			} else if x[i] == y[j] {
+				draws++
+			} else if x[i] < y[j] {
+				loses++
+			}
+		}
+	}
+	return []int{wins, draws, loses}
+}
+
+func prarray(input []int) {
+	for _, j := range input {
+		println(j)
+	}
+}
+
 func main() {
-  var dc1, bns1, dc2, bns2 int
-  fmt.Scan(&dc1)
-  fmt.Scan(&bns1)
-  fmt.Scan(&dc2)
-  fmt.Scan(&bns2)
+	res1 := rollsums(3, 4)
+	res2 := rollsums(4, 0)
+	if res1 == nil || res2 == nil {
+		prarray(res1)
+		println("")
+		prarray(res2)
+
+		println("function failed somehow")
+	}
+	prarray(compare(res1, res2))
 }
